@@ -44,7 +44,7 @@ namespace Infrastructure.Implementation
 
         public async Task<Category> GetByIdAsync(int id)
         {
-            return await _financeAppDbContext.Category.FindAsync(id) ?? throw new Exception($"Category with id {id} not found");
+            return await _financeAppDbContext.Category.FindAsync(id) ?? throw new Exception($"Category with id {id} was not found");
         }
 
         public async Task<ServiceResponse> UpdateAsync(Category category)

@@ -1,4 +1,5 @@
 using Application.Contract;
+using Application.Helper;
 using Infrastructure.Data;
 using Infrastructure.Implementation;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUser, UserRepository>();
 builder.Services.AddScoped<ICategory, CategoryRepository>();
 builder.Services.AddScoped<ITransaction, TransactionRepository>();
+builder.Services.AddScoped<HandleExceptionHelper>();
 
 builder.Services.AddDbContext<FinanceAppDbContext>(options => options.UseSqlServer("Server=localhost; Database=financebd;user=DESKTOP-B741IOH\\Sheila; Trusted_Connection=true; Trust Server Certificate = true"));
 var app = builder.Build();
