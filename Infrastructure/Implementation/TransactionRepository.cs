@@ -54,7 +54,7 @@ namespace Infrastructure.Implementation
 
         public async Task<Transaction> GetByIdAsync(int id)
         {
-            return await GetTransaction(id) ?? throw new Exception($"Transaction with id {id} not found");
+            return await GetTransaction(id) ?? throw new Exception($"Transaction with id {id} was not found");
         }
 
         public async Task<ServiceResponse> UpdateAsync(Transaction transaction)
@@ -66,7 +66,7 @@ namespace Infrastructure.Implementation
                 await SaveChangesAsync();
                 return new ServiceResponse(true, "Transaction updated");
             }
-            return new ServiceResponse(false, $"Couldn't find a transaction with the id {transaction.Id}");
+            return new ServiceResponse(false, $"Couldn't find a transaction with the provided id: {transaction.Id}");
         }
 
         
